@@ -1,0 +1,10 @@
+services:
+  main:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    hostname: quiz-applet
+    stdin_open: true
+    tty: true
+    volumes:
+      - ..:/home/user/workspace

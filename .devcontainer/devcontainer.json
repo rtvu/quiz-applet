@@ -1,0 +1,6 @@
+{
+  "name": "quiz-applet",
+  "dockerComposeFile": "../docker/compose.yaml",
+  "service": "main",
+  "workspaceFolder": "/home/user/workspace"
+}
