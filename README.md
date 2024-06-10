@@ -2,6 +2,10 @@
 
 React application for a quiz applet.
 
+# Demo
+
+Try out the application: [quiz-applet](https://rtvu.github.io/quiz-applet/)
+
 # Getting Started
 
 To run locally:
