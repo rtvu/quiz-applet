@@ -5,13 +5,13 @@ import { QuizCardResults } from "../../QuizCard/QuizCardResults";
 
 describe("QuizCardResults", () => {
   const id = "QuizCardResults";
-  const correct = 2;
+  const score = 2;
   const total = 4;
 
   test("results", async () => {
-    const quizCardResults = render(<QuizCardResults correct={correct} total={total} id={id} />);
+    const quizCardResults = render(<QuizCardResults score={score} total={total} id={id} />);
 
     const results = await quizCardResults.findByTestId(id);
-    expect(results).toHaveTextContent(`${correct.toString()} correct out of ${total.toString()} questions!`);
+    expect(results).toHaveTextContent(`${score.toString()} score out of ${total.toString()} questions!`);
   });
 });
