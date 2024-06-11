@@ -17,7 +17,7 @@ export type Question = {
 };
 
 export function useQuestions(round: number): [Question[], UseQueryResult["status"]] {
-  const results = useQuery({ queryKey: ["quetions", round], queryFn: fetchQuestions });
+  const results = useQuery({ queryKey: ["questions", round], queryFn: fetchQuestions });
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   return [(results.data?.results ?? []) as Question[], results.status];
