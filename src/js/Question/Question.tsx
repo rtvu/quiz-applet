@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 
+import { QuestionHeader } from "./QuestionHeader";
+
 export type QuestionProps = {
   children: ReactNode;
 };
@@ -11,3 +13,6 @@ export function Question(props: QuestionProps): ReactNode {
     </div>
   );
 }
+
+export type { QuestionHeaderProps } from "./QuestionHeader";
+Question.Header = QuestionHeader;
