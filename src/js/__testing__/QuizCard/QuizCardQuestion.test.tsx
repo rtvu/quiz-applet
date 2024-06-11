@@ -9,9 +9,9 @@ describe("QuizCardQuestion", () => {
   test("has question", async () => {
     const question = "What is your name?";
 
-    const navbar = render(<QuizCardQuestion question={question} id={id} />);
+    const quizCardQuestion = render(<QuizCardQuestion question={question} id={id} />);
 
-    const quizCardQuesiton = await navbar.findByTestId(id);
-    expect(quizCardQuesiton).toHaveTextContent(question);
+    const questionText = await quizCardQuestion.findByTestId(id);
+    expect(questionText).toHaveTextContent(question);
   });
 });
