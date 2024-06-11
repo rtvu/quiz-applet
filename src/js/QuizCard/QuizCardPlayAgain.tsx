@@ -16,7 +16,7 @@ export function QuizCardPlayAgain(props: QuizCardPlayAgainProps): ReactNode {
   return (
     <button
       type="button"
-      className="btn btn-primary btn-sm"
+      className="btn btn-primary btn-sm text-nowrap"
       disabled={disabled}
       onClick={onPlayAgain}
       data-testid={props.id}
