@@ -44,5 +44,5 @@ export function QuizCardAnswers(props: QuizCardAnswersProps): ReactNode {
     );
   });
 
-  return <div className="card-body px-2 py-1">{radios}</div>;
+  return <div className="card-body px-3 py-2">{radios}</div>;
 }
