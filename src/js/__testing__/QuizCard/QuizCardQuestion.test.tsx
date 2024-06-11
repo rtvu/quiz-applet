@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { render } from "@testing-library/react";
 
-import { QuizCardQuestion } from "../../Quiz/QuizCardQuestion";
+import { QuizCardQuestion } from "../../QuizCard/QuizCardQuestion";
 
 describe("QuizCardQuestion", () => {
   test("has question", async () => {

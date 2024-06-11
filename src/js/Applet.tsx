@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 
-import { QuizCard } from "./Quiz/QuizCard";
+import { QuizCard } from "./QuizCard/QuizCard";
 
 export function Applet(): ReactNode {
   const [selection, setSelection] = useState(-1);

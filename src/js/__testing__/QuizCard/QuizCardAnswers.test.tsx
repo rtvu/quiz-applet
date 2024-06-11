@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 import { fireEvent, render } from "@testing-library/react";
 
-import { QuizCardAnswers } from "../../Quiz/QuizCardAnswers";
+import { QuizCardAnswers } from "../../QuizCard/QuizCardAnswers";
 
 describe("QuizCardAnswers", () => {
   test("answers are selectable", async () => {
