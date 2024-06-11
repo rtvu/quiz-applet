@@ -4,9 +4,10 @@ import { render } from "@testing-library/react";
 import { QuizCardQuestion } from "../../QuizCard/QuizCardQuestion";
 
 describe("QuizCardQuestion", () => {
+  const id = "QuizCardQuestion";
+
   test("has question", async () => {
     const question = "What is your name?";
-    const id = "QuizCardQuestion";
 
     const navbar = render(<QuizCardQuestion question={question} id={id} />);
 

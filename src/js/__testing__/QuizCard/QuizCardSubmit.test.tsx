@@ -4,9 +4,9 @@ import { fireEvent, render } from "@testing-library/react";
 import { QuizCardSubmit } from "../../QuizCard/QuizCardSubmit";
 
 describe("QuizCardSubmit", () => {
-  test("disabled button", async () => {
-    const id = "QuizCardSubmit";
+  const id = "QuizCardSubmit";
 
+  test("disabled button", async () => {
     const quizCardSubmit = render(
       <QuizCardSubmit
         disabled
@@ -25,7 +25,6 @@ describe("QuizCardSubmit", () => {
     const initialCount = 0;
     let count = initialCount;
 
-    const id = "QuizCardSubmit";
     const onSubmit = () => {
       count = 1;
     };

@@ -4,13 +4,14 @@ import { fireEvent, render } from "@testing-library/react";
 import { QuizCardAnswers } from "../../QuizCard/QuizCardAnswers";
 
 describe("QuizCardAnswers", () => {
+  const id = "QuizCardAnswers";
+
   test("answers are selectable", async () => {
     let selection = -1;
     const answers = ["Ryan", "Daniel", "Jack", "John"];
     const onSelection = (index: number) => {
       selection = index;
     };
-    const id = "QuizCardAnswers";
 
     const quizCardAnswers = render(
       <QuizCardAnswers answers={answers} selection={selection} onSelection={onSelection} id={id} />,
