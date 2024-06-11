@@ -23,6 +23,13 @@ export function Applet(): ReactNode {
               console.log(selection);
             }}
           />
+          <QuizCard.Feedback
+            feedback={{
+              question: "What is your name?",
+              answer: "Ryan",
+              result: "Correct",
+            }}
+          />
         </QuizCard.Console>
       </QuizCard>
     </main>

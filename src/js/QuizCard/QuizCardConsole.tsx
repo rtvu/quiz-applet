@@ -5,5 +5,9 @@ export type QuizCardConsoleProps = {
 };
 
 export function QuizCardConsole(props: QuizCardConsoleProps): ReactNode {
-  return <div className="card-footer px-2">{props.children}</div>;
+  return (
+    <div className="card-footer px-2 d-flex align-items-center" style={{ minHeight: "65px" }}>
+      {props.children}
+    </div>
+  );
 }
