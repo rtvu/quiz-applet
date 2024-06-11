@@ -8,7 +8,7 @@ export type QuizCardProps = {
 
 export function QuizCard(props: QuizCardProps): ReactNode {
   return (
-    <div className="card mx-auto my-3" style={{ maxWidth: "500px" }}>
+    <div className="card mx-auto my-3" style={{ maxWidth: "400px" }}>
       {props.children}
     </div>
   );
