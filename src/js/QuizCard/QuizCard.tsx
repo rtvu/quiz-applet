@@ -7,6 +7,7 @@ import { QuizCardSubmit } from "./QuizCardSubmit";
 import { QuizCardFeedback } from "./QuizCardFeedback";
 import { QuizCardResults } from "./QuizCardResults";
 import { QuizCardPlayAgain } from "./QuizCardPlayAgain";
+import { QuizCardLoading } from "./QuizCardLoading";
 
 export type QuizCardProps = {
   children: ReactNode;
@@ -40,3 +41,5 @@ QuizCard.Results = QuizCardResults;
 
 export type { QuizCardPlayAgainProps } from "./QuizCardPlayAgain";
 QuizCard.PlayAgain = QuizCardPlayAgain;
+
+QuizCard.Loading = QuizCardLoading;
