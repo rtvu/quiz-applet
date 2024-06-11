@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 
-import { Question } from "./Question/Question";
+import { QuizCard } from "./Quiz/QuizCard";
 
 export function Applet(): ReactNode {
   return (
     <main className="container" role="main">
-      <Question>
-        <Question.Header question="What is your name?" />
-      </Question>
+      <QuizCard>
+        <QuizCard.Question question="What is your name?" />
+      </QuizCard>
     </main>
   );
 }

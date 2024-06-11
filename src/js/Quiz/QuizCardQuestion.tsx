@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
-export type QuestionHeaderProps = {
+export type QuizCardQuestionProps = {
   question: string;
 };
 
-export function QuestionHeader(props: QuestionHeaderProps): ReactNode {
+export function QuizCardQuestion(props: QuizCardQuestionProps): ReactNode {
   return <div className="card-header">{props.question}</div>;
 }
