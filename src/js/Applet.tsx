@@ -16,6 +16,14 @@ export function Applet(): ReactNode {
             setSelection(index);
           }}
         />
+        <QuizCard.Console>
+          <QuizCard.Submit
+            disabled={selection === -1}
+            onSubmit={() => {
+              console.log(selection);
+            }}
+          />
+        </QuizCard.Console>
       </QuizCard>
     </main>
   );
