@@ -10,6 +10,10 @@
     "plugin:@typescript-eslint/stylistic-type-checked",
     "prettier"
   ],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/consistent-type-definitions": "off"
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
