@@ -1,37 +1,40 @@
 import { describe, expect, test } from "vitest";
 import { render } from "@testing-library/react";
 
-import { QuizCardFeedback } from "../../QuizCard/QuizCardFeedback";
+import { QuizCardFeedback, QuizCardFeedbackProps } from "../../QuizCard/QuizCardFeedback";
 
 describe("QuizCardFeedback", () => {
   const id = "QuizCardFeedback";
 
-  const question = "What is your name?";
-  const answer = "Ryan";
+  const feedback: QuizCardFeedbackProps["feedback"] = [
+    { question: "What is your name?", correct_answer: "Ryan", selected_answer: "Ryan" },
+    { question: "What is your name?", correct_answer: "Ryan", selected_answer: "Daniel" },
+  ];
 
-  test("no feedback", async () => {
-    const quizCardFeedback = render(<QuizCardFeedback id={id} />);
+  test("correctly formats feedback", async () => {
+    const quizCardFeedback = render(<QuizCardFeedback feedback={feedback} id={id} />);
 
-    await expect(quizCardFeedback.findByTestId("QuizCardFeedback")).rejects.toThrowError();
-  });
+    for (const [index, { question, correct_answer, selected_answer }] of feedback.entries()) {
+      const isCorrect = correct_answer === selected_answer;
 
-  test("correct feedback", async () => {
-    const quizCardFeedback = render(
-      <QuizCardFeedback feedback={{ question: question, answer: answer, result: "Correct" }} id={id} />,
-    );
+      const paragraph = await quizCardFeedback.findByTestId(id + "-" + (index + 1).toString() + "-paragraph");
+      expect(paragraph).toHaveTextContent(question);
+      expect(paragraph).toHaveTextContent(selected_answer);
 
-    const feedback = await quizCardFeedback.findByTestId("QuizCardFeedback");
-    expect(feedback).toHaveClass("text-success");
-    expect(feedback).toHaveTextContent(`Correct: ${question} ${answer}`);
-  });
+      const listNumber = await quizCardFeedback.findByTestId(id + "-" + (index + 1).toString() + "-list-number");
+      expect(listNumber).toHaveClass(isCorrect ? "text-success" : "text-danger");
 
-  test("incorrect feedback", async () => {
-    const quizCardFeedback = render(
-      <QuizCardFeedback feedback={{ question: question, answer: answer, result: "Incorrect" }} id={id} />,
-    );
+      const selectedAnswer = await quizCardFeedback.findByTestId(
+        id + "-" + (index + 1).toString() + "-selected-answer",
+      );
+      expect(selectedAnswer).toHaveClass(isCorrect ? "text-success" : "text-danger");
 
-    const feedback = await quizCardFeedback.findByTestId("QuizCardFeedback");
-    expect(feedback).toHaveClass("text-danger");
-    expect(feedback).toHaveTextContent(`Incorrect: ${question} (${answer})`);
+      if (!isCorrect) {
+        const correctAnswer = await quizCardFeedback.findByTestId(
+          id + "-" + (index + 1).toString() + "-correct-answer",
+        );
+        expect(correctAnswer).toHaveTextContent("(" + correct_answer + ")");
+      }
+    }
   });
 });

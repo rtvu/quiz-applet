@@ -1,34 +1,52 @@
 import { ReactNode } from "react";
 
-export enum QuizCardFeedbackResult {
-  Correct,
-  Incorrect,
-}
-
 export type QuizCardFeedbackProps = {
-  feedback?: {
+  feedback: {
     question: string;
-    answer: string;
-    result: "Correct" | "Incorrect";
-  };
+    correct_answer: string;
+    selected_answer: string;
+  }[];
   id?: string;
 };
 
 export function QuizCardFeedback(props: QuizCardFeedbackProps): ReactNode {
-  let Feedback = null;
-  if (props.feedback !== undefined) {
-    const className = props.feedback.result === "Correct" ? "text-success" : "text-danger";
-    const response =
-      props.feedback.result === "Correct"
-        ? `Correct: ${props.feedback.question} ${props.feedback.answer}`
-        : `Incorrect: ${props.feedback.question} (${props.feedback.answer})`;
+  const Feedback = props.feedback.map(({ question, correct_answer, selected_answer }, index) => {
+    index = index + 1;
 
-    Feedback = (
-      <div className={className} data-testid={props.id}>
-        <small>{response}</small>
+    const isCorrect = correct_answer === selected_answer;
+
+    return (
+      <div key={index} className="d-flex my-1 px-2 py-1 border rounded bg-light">
+        <p
+          className="lh-sm my-0"
+          data-testid={props.id === undefined ? undefined : props.id + "-" + index.toString() + "-paragraph"}
+        >
+          <small
+            className={isCorrect ? "text-success" : "text-danger"}
+            data-testid={props.id === undefined ? undefined : props.id + "-" + index.toString() + "-list-number"}
+          >
+            {index.toString()}.
+          </small>
+          <small>{` ${question} `}</small>
+          <small
+            className={isCorrect ? "text-success" : "text-danger"}
+            data-testid={props.id === undefined ? undefined : props.id + "-" + index.toString() + "-selected-answer"}
+          >
+            {selected_answer}
+          </small>
+          {isCorrect ? null : (
+            <small
+              className="text-success"
+              data-testid={props.id === undefined ? undefined : props.id + "-" + index.toString() + "-correct-answer"}
+            >
+              {" "}
+              ({correct_answer})
+            </small>
+          )}
+        </p>
       </div>
     );
-  }
+  });
 
-  return <div className="d-inline-block align-content-center ms-2">{Feedback}</div>;
+  return <div className="card-body px-3 py-2">{Feedback}</div>;
 }
