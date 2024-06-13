@@ -1,5 +1,13 @@
 import { ReactNode } from "react";
 
-export function QuizCardLoading(): ReactNode {
-  return <div className="card-body px-3 py-2">Loading</div>;
+export type QuizCardLoadingProps = {
+  id?: string;
+};
+
+export function QuizCardLoading(props: QuizCardLoadingProps): ReactNode {
+  return (
+    <div className="card-body px-3 py-2" data-testid={props.id}>
+      Loading
+    </div>
+  );
 }

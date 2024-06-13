@@ -42,4 +42,5 @@ QuizCard.Results = QuizCardResults;
 export type { QuizCardPlayAgainProps } from "./QuizCardPlayAgain";
 QuizCard.PlayAgain = QuizCardPlayAgain;
 
+export type { QuizCardLoadingProps } from "./QuizCardLoading";
 QuizCard.Loading = QuizCardLoading;
