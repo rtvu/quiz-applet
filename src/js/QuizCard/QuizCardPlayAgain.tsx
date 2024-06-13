@@ -14,14 +14,16 @@ export function QuizCardPlayAgain(props: QuizCardPlayAgainProps): ReactNode {
   };
 
   return (
-    <button
-      type="button"
-      className="btn btn-primary btn-sm text-nowrap"
-      disabled={disabled}
-      onClick={onPlayAgain}
-      data-testid={props.id}
-    >
-      Play Again
-    </button>
+    <div className="card-footer px-2">
+      <button
+        type="button"
+        className="btn btn-primary btn-sm text-nowrap"
+        disabled={disabled}
+        onClick={onPlayAgain}
+        data-testid={props.id}
+      >
+        Play Again
+      </button>
+    </div>
   );
 }

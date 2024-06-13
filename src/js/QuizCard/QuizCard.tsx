@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 
 import { QuizCardQuestion } from "./QuizCardQuestion";
 import { QuizCardAnswers } from "./QuizCardAnswers";
-import { QuizCardConsole } from "./QuizCardConsole";
 import { QuizCardSubmit } from "./QuizCardSubmit";
 import { QuizCardFeedback } from "./QuizCardFeedback";
 import { QuizCardResults } from "./QuizCardResults";
@@ -26,9 +25,6 @@ QuizCard.Question = QuizCardQuestion;
 
 export type { QuizCardAnswersProps } from "./QuizCardAnswers";
 QuizCard.Answers = QuizCardAnswers;
-
-export type { QuizCardConsoleProps } from "./QuizCardConsole";
-QuizCard.Console = QuizCardConsole;
 
 export type { QuizCardSubmitProps } from "./QuizCardSubmit";
 QuizCard.Submit = QuizCardSubmit;

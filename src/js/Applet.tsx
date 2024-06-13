@@ -31,16 +31,14 @@ export function Applet(props: AppletProps): ReactNode {
       <QuizCard>
         <QuizCard.Results score={score} total={props.questions.length} />
         <QuizCard.Feedback feedback={feedback} />
-        <QuizCard.Console>
-          <QuizCard.PlayAgain
-            onPlayAgain={() => {
-              setIndex(0);
-              setScore(0);
-              setFeedback([]);
-              props.onPlayAgain();
-            }}
-          />
-        </QuizCard.Console>
+        <QuizCard.PlayAgain
+          onPlayAgain={() => {
+            setIndex(0);
+            setScore(0);
+            setFeedback([]);
+            props.onPlayAgain();
+          }}
+        />
       </QuizCard>
     );
   }
@@ -62,26 +60,24 @@ export function Applet(props: AppletProps): ReactNode {
           setSelection(index);
         }}
       />
-      <QuizCard.Console>
-        <QuizCard.Submit
-          disabled={selection === -1}
-          onSubmit={() => {
-            setIndex((index) => index + 1);
-            setSelection(-1);
-            setScore((score) => (isCorrectChoice ? score + 1 : score));
-            shuffledAnswers.current = null;
-            setFeedback((feedback) => {
-              feedback = [...feedback];
-              feedback.push({
-                question: question.question,
-                correct_answer: question.correct_answer,
-                selected_answer: answers[selection] ?? "",
-              });
-              return feedback;
+      <QuizCard.Submit
+        disabled={selection === -1}
+        onSubmit={() => {
+          setIndex((index) => index + 1);
+          setSelection(-1);
+          setScore((score) => (isCorrectChoice ? score + 1 : score));
+          shuffledAnswers.current = null;
+          setFeedback((feedback) => {
+            feedback = [...feedback];
+            feedback.push({
+              question: question.question,
+              correct_answer: question.correct_answer,
+              selected_answer: answers[selection] ?? "",
             });
-          }}
-        />
-      </QuizCard.Console>
+            return feedback;
+          });
+        }}
+      />
     </QuizCard>
   );
 }
