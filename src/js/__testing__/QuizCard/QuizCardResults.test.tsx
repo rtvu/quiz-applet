@@ -12,6 +12,6 @@ describe("QuizCardResults", () => {
     const quizCardResults = render(<QuizCardResults score={score} total={total} id={id} />);
 
     const results = await quizCardResults.findByTestId(id);
-    expect(results).toHaveTextContent(`${score.toString()} score out of ${total.toString()} questions!`);
+    expect(results).toHaveTextContent(`You got ${score.toString()} out of ${total.toString()} questions correct!`);
   });
 });

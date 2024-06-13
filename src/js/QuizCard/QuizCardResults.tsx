@@ -8,8 +8,8 @@ export type QuizCardResultsProps = {
 
 export function QuizCardResults(props: QuizCardResultsProps): ReactNode {
   return (
-    <div className="card-bodycard-body px-3 py-2" data-testid={props.id}>
-      {`${props.score.toString()} score out of ${props.total.toString()} questions!`}
+    <div className="card-header" data-testid={props.id}>
+      {`You got ${props.score.toString()} out of ${props.total.toString()} questions correct!`}
     </div>
   );
 }
