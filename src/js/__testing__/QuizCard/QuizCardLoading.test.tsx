@@ -3,8 +3,8 @@ import { render } from "@testing-library/react";
 
 import { QuizCardLoading } from "../../QuizCard/QuizCardLoading";
 
-describe("QuizCardLoading", () => {
-  const id = "QuizCardLoading";
+describe(QuizCardLoading.name, () => {
+  const id = QuizCardLoading.name;
 
   test("displays loading", async () => {
     const quizCardLoading = render(<QuizCardLoading id={id} />);
