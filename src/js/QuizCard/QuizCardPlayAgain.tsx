@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { useState, ReactNode } from "react";
 
 export type QuizCardPlayAgainProps = {
   onPlayAgain: () => void;

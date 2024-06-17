@@ -3,26 +3,22 @@ import { fireEvent, render } from "@testing-library/react";
 
 import { QuizCardPlayAgain } from "../../QuizCard/QuizCardPlayAgain";
 
-describe("QuizCardPlayAgain", () => {
-  const id = "QuizCardPlayAgain";
+describe(QuizCardPlayAgain.name, () => {
+  const id = QuizCardPlayAgain.name;
 
   test("use button", async () => {
-    let flag = false;
+    let isTrue = false;
+    const onPlayAgain = () => {
+      isTrue = true;
+    };
 
-    const quizCardPlayAgain = render(
-      <QuizCardPlayAgain
-        id={id}
-        onPlayAgain={() => {
-          flag = true;
-        }}
-      />,
-    );
+    const quizCardPlayAgain = render(<QuizCardPlayAgain onPlayAgain={onPlayAgain} id={id} />);
 
     const button = await quizCardPlayAgain.findByTestId(id);
-    expect(flag).toBe(false);
+    expect(isTrue).toBe(false);
     expect(button).toBeEnabled();
     fireEvent.click(button);
-    expect(flag).toBe(true);
+    expect(isTrue).toBe(true);
     expect(button).toBeDisabled();
   });
 });
