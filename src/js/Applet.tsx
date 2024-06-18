@@ -52,7 +52,7 @@ export function Applet(props: AppletProps): ReactNode {
 
   return (
     <QuizCard>
-      <QuizCard.Question question={question.question} />
+      <QuizCard.Question question={`${(index + 1).toString()}. ${question.question}`} />
       <QuizCard.Answers
         answers={answers}
         selection={selection}

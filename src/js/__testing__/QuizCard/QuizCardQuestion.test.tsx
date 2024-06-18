@@ -3,8 +3,8 @@ import { render } from "@testing-library/react";
 
 import { QuizCardQuestion } from "../../QuizCard/QuizCardQuestion";
 
-describe("QuizCardQuestion", () => {
-  const id = "QuizCardQuestion";
+describe(QuizCardQuestion.name, () => {
+  const id = QuizCardQuestion.name;
 
   test("has question", async () => {
     const question = "What is your name?";
