@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 
 import { Navbar } from "../Navbar";
 
-describe("Navbar", () => {
+describe(Navbar.name, () => {
   test("has title", async () => {
     const title = "Quiz Applet";
 
