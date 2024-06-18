@@ -6,7 +6,7 @@ export type QuizCardFeedbackProps = {
     correct_answer: string;
     selected_answer: string;
   }[];
-  id?: string;
+  testId?: string;
 };
 
 export function QuizCardFeedback(props: QuizCardFeedbackProps): ReactNode {
@@ -18,25 +18,25 @@ export function QuizCardFeedback(props: QuizCardFeedbackProps): ReactNode {
       <div key={index} className="d-flex my-1 px-2 py-1 border rounded bg-light">
         <p
           className="lh-sm my-0"
-          data-testid={props.id === undefined ? undefined : `${props.id}-${indexString}-paragraph`}
+          data-testid={props.testId === undefined ? undefined : `${props.testId}-${indexString}-paragraph`}
         >
           <small
             className={isCorrect ? "text-success" : "text-danger"}
-            data-testid={props.id === undefined ? undefined : `${props.id}-${indexString}-list-number`}
+            data-testid={props.testId === undefined ? undefined : `${props.testId}-${indexString}-list-number`}
           >
             {index + 1}.
           </small>
           <small>{` ${question} `}</small>
           <small
             className={isCorrect ? "text-success" : "text-danger"}
-            data-testid={props.id === undefined ? undefined : `${props.id}-${indexString}-selected-answer`}
+            data-testid={props.testId === undefined ? undefined : `${props.testId}-${indexString}-selected-answer`}
           >
             {selected_answer}
           </small>
           {isCorrect ? null : (
             <small
               className="text-success"
-              data-testid={props.id === undefined ? undefined : `${props.id}-${indexString}-correct-answer`}
+              data-testid={props.testId === undefined ? undefined : `${props.testId}-${indexString}-correct-answer`}
             >
               {" "}
               ({correct_answer})

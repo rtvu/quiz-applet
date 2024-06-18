@@ -4,7 +4,7 @@ import { fireEvent, render } from "@testing-library/react";
 import { QuizCardPlayAgain } from "../../QuizCard/QuizCardPlayAgain";
 
 describe(QuizCardPlayAgain.name, () => {
-  const id = QuizCardPlayAgain.name;
+  const testId = QuizCardPlayAgain.name;
 
   test("use button", async () => {
     let isTrue = false;
@@ -12,9 +12,9 @@ describe(QuizCardPlayAgain.name, () => {
       isTrue = true;
     };
 
-    const quizCardPlayAgain = render(<QuizCardPlayAgain onPlayAgain={onPlayAgain} id={id} />);
+    const quizCardPlayAgain = render(<QuizCardPlayAgain onPlayAgain={onPlayAgain} testId={testId} />);
 
-    const button = await quizCardPlayAgain.findByTestId(id);
+    const button = await quizCardPlayAgain.findByTestId(testId);
     expect(isTrue).toBe(false);
     expect(button).toBeEnabled();
     fireEvent.click(button);

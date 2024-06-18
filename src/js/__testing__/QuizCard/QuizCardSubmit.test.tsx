@@ -4,16 +4,16 @@ import { fireEvent, render } from "@testing-library/react";
 import { QuizCardSubmit } from "../../QuizCard/QuizCardSubmit";
 
 describe(QuizCardSubmit.name, () => {
-  const id = QuizCardSubmit.name;
+  const testId = QuizCardSubmit.name;
 
   test("disabled button", async () => {
     const onSubmit = () => {
       undefined;
     };
 
-    const quizCardSubmit = render(<QuizCardSubmit disabled onSubmit={onSubmit} id={id} />);
+    const quizCardSubmit = render(<QuizCardSubmit disabled onSubmit={onSubmit} testId={testId} />);
 
-    const button = await quizCardSubmit.findByTestId(id);
+    const button = await quizCardSubmit.findByTestId(testId);
     expect(button).toBeDisabled();
   });
 
@@ -26,9 +26,9 @@ describe(QuizCardSubmit.name, () => {
       count = afterClickCount;
     };
 
-    const quizCardSubmit = render(<QuizCardSubmit onSubmit={onSubmit} id={id} />);
+    const quizCardSubmit = render(<QuizCardSubmit onSubmit={onSubmit} testId={testId} />);
 
-    const button = await quizCardSubmit.findByTestId(id);
+    const button = await quizCardSubmit.findByTestId(testId);
     fireEvent.click(button);
     expect(count).toBe(afterClickCount);
   });

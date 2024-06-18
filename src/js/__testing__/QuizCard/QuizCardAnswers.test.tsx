@@ -12,7 +12,7 @@ describe(QuizCardAnswers.name, () => {
   };
 
   const groupName = QuizCardAnswers.name;
-  const id = QuizCardAnswers.name;
+  const testId = QuizCardAnswers.name;
 
   test("radios are in the same group", async () => {
     const quizCardAnswers = render(
@@ -21,27 +21,27 @@ describe(QuizCardAnswers.name, () => {
         selection={selection}
         onSelection={onSelection}
         groupName={groupName}
-        id={id}
+        testId={testId}
       />,
     );
 
     for (const index of answers.keys()) {
       const indexString = index.toString();
 
-      const answerRadio = await quizCardAnswers.findByTestId(id + "-" + indexString + "-radio");
+      const answerRadio = await quizCardAnswers.findByTestId(testId + "-" + indexString + "-radio");
       expect(answerRadio).toHaveAttribute("name", groupName);
     }
   });
 
   test("answers are shown", async () => {
     const quizCardAnswers = render(
-      <QuizCardAnswers answers={answers} selection={selection} onSelection={onSelection} id={id} />,
+      <QuizCardAnswers answers={answers} selection={selection} onSelection={onSelection} testId={testId} />,
     );
 
     for (const [index, answer] of answers.entries()) {
       const indexString = index.toString();
 
-      const answerText = await quizCardAnswers.findByTestId(id + "-" + indexString + "-text");
+      const answerText = await quizCardAnswers.findByTestId(testId + "-" + indexString + "-text");
       expect(answerText).toHaveDisplayValue(answer);
     }
   });
@@ -50,25 +50,25 @@ describe(QuizCardAnswers.name, () => {
     selection = -1;
 
     const quizCardAnswers = render(
-      <QuizCardAnswers answers={answers} selection={selection} onSelection={onSelection} id={id} />,
+      <QuizCardAnswers answers={answers} selection={selection} onSelection={onSelection} testId={testId} />,
     );
 
     for (const index of answers.keys()) {
       const indexString = index.toString();
 
-      const answerRadio = await quizCardAnswers.findByTestId(id + "-" + indexString + "-radio");
+      const answerRadio = await quizCardAnswers.findByTestId(testId + "-" + indexString + "-radio");
       expect(answerRadio).not.toBeChecked();
     }
 
     for (selection of answers.keys()) {
       quizCardAnswers.rerender(
-        <QuizCardAnswers answers={answers} selection={selection} onSelection={onSelection} id={id} />,
+        <QuizCardAnswers answers={answers} selection={selection} onSelection={onSelection} testId={testId} />,
       );
 
       for (const index of answers.keys()) {
         const indexString = index.toString();
 
-        const answerRadio = await quizCardAnswers.findByTestId(id + "-" + indexString + "-radio");
+        const answerRadio = await quizCardAnswers.findByTestId(testId + "-" + indexString + "-radio");
         if (selection === index) {
           expect(answerRadio).toBeChecked();
         } else {
@@ -82,18 +82,18 @@ describe(QuizCardAnswers.name, () => {
     selection = -1;
 
     const quizCardAnswers = render(
-      <QuizCardAnswers answers={answers} selection={selection} onSelection={onSelection} id={id} />,
+      <QuizCardAnswers answers={answers} selection={selection} onSelection={onSelection} testId={testId} />,
     );
 
     for (const index of answers.keys()) {
       const indexString = index.toString();
 
-      const answerRadio = await quizCardAnswers.findByTestId(id + "-" + indexString + "-radio");
+      const answerRadio = await quizCardAnswers.findByTestId(testId + "-" + indexString + "-radio");
       selection = -1;
       fireEvent.click(answerRadio);
       expect(selection).toBe(index);
 
-      const answerText = await quizCardAnswers.findByTestId(id + "-" + indexString + "-text");
+      const answerText = await quizCardAnswers.findByTestId(testId + "-" + indexString + "-text");
       selection = -1;
       fireEvent.click(answerText);
       expect(selection).toBe(index);

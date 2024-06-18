@@ -5,7 +5,7 @@ export type QuizCardAnswersProps = {
   selection: number;
   onSelection: (index: number) => void;
   groupName?: string;
-  id?: string;
+  testId?: string;
 };
 
 export function QuizCardAnswers(props: QuizCardAnswersProps): ReactNode {
@@ -36,7 +36,7 @@ export function QuizCardAnswers(props: QuizCardAnswersProps): ReactNode {
             value={index}
             checked={index === props.selection}
             onChange={onChangeOrClick}
-            data-testid={props.id === undefined ? undefined : `${props.id}-${indexString}-radio`}
+            data-testid={props.testId === undefined ? undefined : `${props.testId}-${indexString}-radio`}
           />
         </div>
         <input
@@ -47,7 +47,7 @@ export function QuizCardAnswers(props: QuizCardAnswersProps): ReactNode {
           readOnly
           onClick={onChangeOrClick}
           onKeyDown={onKeyDown}
-          data-testid={props.id === undefined ? undefined : `${props.id}-${indexString}-text`}
+          data-testid={props.testId === undefined ? undefined : `${props.testId}-${indexString}-text`}
         />
       </div>
     );

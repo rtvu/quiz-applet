@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
 
 export type QuizCardLoadingProps = {
-  id?: string;
+  testId?: string;
 };
 
 export function QuizCardLoading(props: QuizCardLoadingProps): ReactNode {
   return (
-    <div className="card-body px-3 py-2" data-testid={props.id}>
+    <div className="card-body px-3 py-2" data-testid={props.testId}>
       Loading
     </div>
   );

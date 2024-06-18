@@ -2,7 +2,7 @@ import { useState, ReactNode } from "react";
 
 export type QuizCardPlayAgainProps = {
   onPlayAgain: () => void;
-  id?: string;
+  testId?: string;
 };
 
 export function QuizCardPlayAgain(props: QuizCardPlayAgainProps): ReactNode {
@@ -20,7 +20,7 @@ export function QuizCardPlayAgain(props: QuizCardPlayAgainProps): ReactNode {
         className="btn btn-primary btn-sm text-nowrap"
         disabled={disabled}
         onClick={onPlayAgain}
-        data-testid={props.id}
+        data-testid={props.testId}
       >
         Play Again
       </button>
