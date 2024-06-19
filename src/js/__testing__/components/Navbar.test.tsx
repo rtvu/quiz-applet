@@ -1,7 +1,7 @@
-import { describe, expect, test } from "vitest";
 import { render } from "@testing-library/react";
+import { describe, expect, test } from "vitest";
 
-import { Navbar } from "../Navbar";
+import { Navbar } from "@components/Navbar";
 
 describe(Navbar.name, () => {
   test("has title", async () => {

@@ -1,8 +1,10 @@
 import { ReactNode, useRef, useState } from "react";
 
-import { Question } from "./useQuestions";
-import { QuizCard, QuizCardFeedbackProps } from "./QuizCard/QuizCard";
-import { shuffleArray } from "./utilities";
+import { QuizCard, QuizCardFeedbackProps } from "@QuizCard/QuizCard";
+
+import { Question } from "@hooks/useQuestions";
+
+import { shuffleArray } from "../utilities";
 
 export type AppletProps = {
   questions: Question[];

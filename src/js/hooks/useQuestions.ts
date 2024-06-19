@@ -1,5 +1,4 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
-
 import { decode } from "html-entities";
 
 async function fetchQuestions() {

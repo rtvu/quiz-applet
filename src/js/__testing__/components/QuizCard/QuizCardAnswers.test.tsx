@@ -1,7 +1,7 @@
-import { describe, expect, test } from "vitest";
 import { fireEvent, render } from "@testing-library/react";
+import { describe, expect, test } from "vitest";
 
-import { QuizCardAnswers } from "../../QuizCard/QuizCardAnswers";
+import { QuizCardAnswers } from "@QuizCard/QuizCardAnswers";
 
 describe(QuizCardAnswers.name, () => {
   const answers = ["Ryan", "Daniel", "Jack", "John"];

@@ -1,7 +1,8 @@
 import { ReactNode, useState } from "react";
 
-import { useQuestions } from "./useQuestions";
-import { Applet } from "./Applet";
+import { Applet } from "@components/Applet";
+
+import { useQuestions } from "@hooks/useQuestions";
 
 export function RunApplet(): ReactNode {
   const [round, setRound] = useState(0);

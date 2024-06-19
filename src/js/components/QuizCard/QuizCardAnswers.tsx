@@ -1,4 +1,4 @@
-import { useId, KeyboardEvent, ReactNode } from "react";
+import { KeyboardEvent, ReactNode, useId } from "react";
 
 export type QuizCardAnswersProps = {
   answers: string[];

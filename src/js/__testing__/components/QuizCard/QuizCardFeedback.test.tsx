@@ -1,7 +1,7 @@
-import { describe, expect, test } from "vitest";
 import { render } from "@testing-library/react";
+import { describe, expect, test } from "vitest";
 
-import { QuizCardFeedback, QuizCardFeedbackProps } from "../../QuizCard/QuizCardFeedback";
+import { QuizCardFeedback, QuizCardFeedbackProps } from "@QuizCard/QuizCardFeedback";
 
 describe(QuizCardFeedback.name, () => {
   const feedback: QuizCardFeedbackProps["feedback"] = [
