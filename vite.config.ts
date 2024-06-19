@@ -1,8 +1,10 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
+
 import react from "@vitejs/plugin-react";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tsconfigPaths()],
   root: "src",
   build: {
     emptyOutDir: true,
@@ -17,6 +19,6 @@ export default defineConfig({
   },
   test: {
     environment: "jsdom",
-    setupFiles: ["./src/js/__testing__/vitest-setup.ts"],
+    setupFiles: ["./js/__testing__/vitest-setup.ts"],
   },
 });
