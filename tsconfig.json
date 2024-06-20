@@ -33,6 +33,7 @@
       "@QuizCard/*": ["./src/js/components/QuizCard/*"],
       "@components/*": ["./src/js/components/*"],
       "@hooks/*": ["./src/js/hooks/*"],
+      "@mocks/*": ["./src/js/__testing__/mocks/*"],
       "@scss/*": ["./src/scss/*"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
